@@ -1,0 +1,820 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Мастер по замкам — 24/7</title>
+  <meta name="description" content="Мастер по замкам 24/7: вскрытие замков, замена замков, вскрытие автомобилей, вскрытие сейфов. +7 993 087-55-36" />
+  <style>
+    :root{
+      --teal:#3b9c98;
+      --orange:#d37b2a;
+      --ink:#0f172a;
+      --bg:#f5f1ea;
+      --muted:#475569;
+      --line: rgba(15,23,42,.12);
+      --shadow: 0 16px 40px rgba(2,6,23,.14);
+      --radius: 18px;
+      --radius2: 26px;
+
+      --grad: linear-gradient(90deg, var(--teal) 0%, color-mix(in srgb, var(--teal) 55%, var(--orange) 45%) 45%, var(--orange) 100%);
+
+      /* Telegram */
+      --tg:#229ED9;
+      --tg2:#1d86ba;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1100px 700px at 20% 10%, rgba(59,156,152,.12), transparent 60%),
+        radial-gradient(1100px 700px at 80% 80%, rgba(211,123,42,.12), transparent 60%),
+        var(--bg);
+    }
+    a{color:inherit}
+    .container{width:min(1120px, 100%); margin:0 auto; padding:0 16px}
+
+    .topbar{
+      background: rgba(255,255,255,.72);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+      color: #334155;
+    }
+    .topbar .row{
+      display:flex; gap:12px; align-items:center; justify-content:space-between;
+      padding:10px 0;
+    }
+    .top-left{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.6);
+    }
+    .dot247{
+      width:8px;height:8px;border-radius:999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34,197,94,.12);
+    }
+
+    header{
+      position: sticky;
+      top:0;
+      z-index:20;
+      background: rgba(245,241,234,.76);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width: 240px;
+    }
+    .logo{
+      width:42px; height:42px; border-radius:14px;
+      background: var(--grad);
+      box-shadow: 0 10px 24px rgba(2,6,23,.18);
+      display:grid; place-items:center;
+      color:white;
+      flex:0 0 auto;
+    }
+    .brand b{display:block; line-height:1.05}
+    .brand span{display:block; color:#64748b; font-size:12px; margin-top:2px}
+
+    nav ul{
+      list-style:none; padding:0; margin:0;
+      display:flex; gap:18px; align-items:center; flex-wrap:wrap;
+      color:#1f2937;
+      font-weight:700;
+      font-size:14px;
+    }
+    nav a{text-decoration:none; opacity:.9}
+    nav a:hover{opacity:1; text-decoration:underline}
+
+    .nav-cta{
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+      min-width: 260px;
+    }
+    .phone{
+      font-weight:900;
+      text-decoration:none;
+      padding:10px 12px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.72);
+      box-shadow: 0 10px 24px rgba(2,6,23,.08);
+      white-space:nowrap;
+    }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:10px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.25);
+      background: var(--grad);
+      color: #fff;
+      font-weight:900;
+      text-decoration:none;
+      box-shadow: 0 14px 28px rgba(2,6,23,.18);
+      cursor:pointer;
+    }
+    .btn.secondary{
+      background: rgba(255,255,255,.78);
+      color: #0f172a;
+      border: 1px solid var(--line);
+      box-shadow: 0 14px 28px rgba(2,6,23,.08);
+    }
+
+    /* Telegram buttons */
+    .btn.tg{
+      background: linear-gradient(180deg, var(--tg) 0%, var(--tg2) 100%);
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: 0 14px 28px rgba(34,158,217,.22);
+    }
+    .btn.tg-outline{
+      background: rgba(255,255,255,.78);
+      color: #0f172a;
+      border: 1px solid rgba(34,158,217,.35);
+      box-shadow: 0 14px 28px rgba(2,6,23,.08);
+    }
+
+    /* HERO */
+    .hero{padding: 34px 0 18px}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){
+      nav ul{display:none}
+      .hero-grid{grid-template-columns:1fr}
+      .brand{min-width:auto}
+      .nav-cta{min-width:auto}
+    }
+
+    .hero-card{
+      border-radius: var(--radius2);
+      background: #fff;
+      border:1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero-card::before{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(800px 320px at 20% 10%, rgba(59,156,152,.20), transparent 60%),
+                  radial-gradient(900px 350px at 80% 90%, rgba(211,123,42,.18), transparent 58%);
+      pointer-events:none;
+    }
+    .hero-inner{position:relative; padding: 26px}
+
+    .kicker{
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+      margin-bottom: 10px;
+    }
+    .kicker .tag{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(15,23,42,.06);
+      border: 1px solid rgba(15,23,42,.10);
+      font-size: 13px;
+      font-weight: 800;
+      color:#0f172a;
+    }
+
+    h1{
+      margin: 8px 0 10px;
+      font-size: clamp(30px, 4.6vw, 44px);
+      line-height:1.04;
+      letter-spacing:.3px;
+    }
+    .hero-sub{
+      color: var(--muted);
+      font-size: 15px;
+      line-height:1.45;
+      margin:0 0 14px;
+      max-width: 62ch;
+    }
+
+    .bullets{
+      display:grid; gap:10px;
+      padding:0; margin: 14px 0 0;
+      list-style:none;
+    }
+    .bullets li{
+      display:flex; gap:10px; align-items:flex-start;
+      font-weight: 800;
+      color:#0f172a;
+    }
+    .check{
+      width:18px; height:18px; border-radius:6px;
+      background: var(--grad);
+      box-shadow: 0 8px 18px rgba(2,6,23,.16);
+      display:grid; place-items:center; color:white; flex:0 0 auto;
+      margin-top:2px;
+      font-size: 12px;
+    }
+
+    /* FORM CARD */
+    .form-card{
+      border-radius: var(--radius2);
+      background: #fff;
+      border:1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .form-head{padding: 18px 18px 0}
+    .form-head h2{margin:0; font-size: 18px; letter-spacing:.2px}
+    .form-head p{margin:6px 0 0; color: var(--muted); font-size: 13px; line-height:1.35}
+
+    form{
+      padding: 14px 18px 18px;
+      display:grid;
+      gap:10px;
+    }
+    label{font-size:12px; color:#64748b; font-weight:800}
+    input, textarea, select{
+      width:100%;
+      padding:12px 12px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      outline:none;
+      font: inherit;
+      background: rgba(245,241,234,.55);
+    }
+    input:focus, textarea:focus{
+      border-color: color-mix(in srgb, var(--teal) 55%, #fff 45%);
+      box-shadow: 0 0 0 4px rgba(59,156,152,.12);
+      background:#fff;
+    }
+    .form-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top: 4px}
+    .fineprint{font-size: 12px; color:#64748b; line-height:1.35}
+
+    /* SECTIONS */
+    section{padding: 22px 0}
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      margin-bottom: 12px;
+    }
+    .section-title h3{margin:0; font-size: 22px; letter-spacing:.2px}
+    .section-title p{margin:0; color: var(--muted); font-size: 13px}
+
+    .grid-4{
+      display:grid; gap:12px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @media (max-width: 980px){.grid-4{grid-template-columns: repeat(2, 1fr)}}
+    @media (max-width: 560px){.grid-4{grid-template-columns: 1fr}}
+
+    .card{
+      background: #fff;
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 26px rgba(2,6,23,.08);
+      padding: 16px;
+    }
+    .card b{display:block; margin-bottom:6px}
+    .card p{margin:0; color: var(--muted); font-size: 13px; line-height:1.45}
+
+    .mini-price{
+      display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top:1px dashed rgba(15,23,42,.14);
+      font-weight: 900;
+    }
+    .mini-price span{color:#64748b; font-weight:800; font-size:12px}
+    .price{
+      background: var(--grad);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color: transparent;
+      font-size: 18px;
+    }
+
+    .two-col{
+      display:grid; gap:12px;
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 860px){.two-col{grid-template-columns:1fr}}
+
+    .faq details{
+      border:1px solid var(--line);
+      border-radius: 16px;
+      background:#fff;
+      padding: 12px 14px;
+      box-shadow: 0 10px 22px rgba(2,6,23,.06);
+    }
+    .faq details + details{margin-top:10px}
+    .faq summary{
+      cursor:pointer;
+      font-weight: 900;
+      list-style:none;
+    }
+    .faq summary::-webkit-details-marker{display:none}
+    .faq p{margin:10px 0 0; color: var(--muted); font-size: 13px; line-height:1.45}
+
+    .review{display:grid; gap:8px}
+    .review .who{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      font-weight: 900;
+    }
+    .stars{
+      letter-spacing:2px;
+      background: var(--grad);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color: transparent;
+      font-weight: 900;
+      white-space:nowrap;
+    }
+
+    .contact-bar{
+      border-radius: var(--radius2);
+      background: var(--grad);
+      color:#fff;
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .contact-bar::after{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(900px 380px at 15% 15%, rgba(255,255,255,.18), transparent 60%),
+                  radial-gradient(900px 380px at 85% 85%, rgba(0,0,0,.14), transparent 58%);
+      pointer-events:none;
+    }
+    .contact-inner{
+      position:relative;
+      padding: 18px;
+      display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap;
+    }
+    .contact-inner b{font-size: 18px}
+    .contact-inner small{display:block; opacity:.9; margin-top:4px}
+
+    footer{
+      padding: 18px 0 30px;
+      color:#64748b;
+      font-size: 12px;
+    }
+
+    .muted{color: var(--muted)}
+  </style>
+</head>
+
+<body>
+  <!-- Верхняя полоска -->
+  <div class="topbar">
+    <div class="container">
+      <div class="row">
+        <div class="top-left">
+          <span class="pill">Круглосуточно <span class="dot247" aria-hidden="true"></span></span>
+          <span class="pill">Выезд мастера</span>
+          <span class="pill">Опыт 10+ лет</span>
+        </div>
+        <div class="top-right">
+          <a class="pill" href="tel:+79889515789" style="text-decoration:none;font-weight:900">
+            +7 993 087-55-36
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container">
+      <div class="nav">
+        <div class="brand">
+          <div class="logo" aria-hidden="true">
+            <!-- lock icon -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M7.5 10V7.5a4.5 4.5 0 0 1 9 0V10" stroke="rgba(255,255,255,.92)" stroke-width="1.6" stroke-linecap="round"/>
+              <rect x="5.2" y="10" width="13.6" height="11.3" rx="2.2"
+                    fill="rgba(255,255,255,.24)" stroke="rgba(255,255,255,.38)" stroke-width="1"/>
+              <path d="M12 14.2v3.6" stroke="rgba(255,255,255,.92)" stroke-width="1.6" stroke-linecap="round"/>
+              <circle cx="12" cy="14" r="1.2" fill="rgba(255,255,255,.92)"/>
+            </svg>
+          </div>
+          <div>
+            <b>МАСТЕР ПО ЗАМКАМ</b>
+            <span>24/7 • Срочный выезд • 10+ лет на рынке</span>
+          </div>
+        </div>
+
+        <nav aria-label="Навигация">
+          <ul>
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#experience">Опыт</a></li>
+            <li><a href="#prices">Цены</a></li>
+            <li><a href="#reviews">Отзывы</a></li>
+            <li><a href="#faq">Вопросы</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-cta">
+          <a class="phone" href="tel:+79889515789">+7 993 087-55-36</a>
+          <a class="btn" href="#call">Вызвать срочно</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO + Форма -->
+  <main class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-card">
+          <div class="hero-inner">
+            <div class="kicker">
+              <span class="tag">Круглосуточно 24/7</span>
+              <span class="tag">10+ лет опыта</span>
+              <span class="tag">Быстрый выезд</span>
+            </div>
+
+            <h1>Мастер по замкам<br>вскрытие • замена • авто • сейфы</h1>
+            <p class="hero-sub">
+              На рынке <b>больше 10 лет</b>. Работаем 24/7. Звоните или оставьте заявку — перезвоним и согласуем удобное время.
+              Данные и список услуг — как на вашей визитке.
+            </p>
+
+            <ul class="bullets">
+              <li><span class="check">✓</span> Вскрытие замков</li>
+              <li><span class="check">✓</span> Замена замков</li>
+              <li><span class="check">✓</span> Вскрытие автомобилей</li>
+              <li><span class="check">✓</span> Вскрытие сейфов</li>
+            </ul>
+
+            <div class="form-actions" style="margin-top:16px">
+              <a class="btn" href="tel:+79889515789">Позвонить</a>
+              <a class="btn tg-outline" href="https://t.me/ChampVSK" target="_blank" rel="noopener" aria-label="Написать в Telegram @ChampVSK">
+                <!-- Telegram icon -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M21.7 4.4c.2-.8-.6-1.5-1.4-1.2L2.9 10c-1 .4-1 1.8 0 2.2l4.6 1.5 1.7 5.2c.3.9 1.5 1.1 2.1.4l2.6-2.9 5.1 3.7c.8.6 1.9.1 2.1-.9l2.7-14.8Z" fill="rgba(34,158,217,.95)"/>
+                  <path d="M8 13.4 18.8 6.9c.3-.2.6.2.4.4L10.2 15c-.1.1-.2.3-.2.5l-.2 2.3" stroke="rgba(15,23,42,.35)" stroke-width="1.2" stroke-linecap="round"/>
+                </svg>
+                Telegram
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-card" id="call">
+          <div class="form-head">
+            <h2>Заполните форму и вызовите мастера</h2>
+            <p>Мы перезвоним, уточним задачу и быстро направим мастера.</p>
+          </div>
+          <form onsubmit="return submitLead(event)">
+            <div>
+              <label for="name">Имя</label>
+              <input id="name" name="name" autocomplete="name" placeholder="Как к вам обращаться" />
+            </div>
+            <div>
+              <label for="phone">Телефон *</label>
+              <input id="phone" name="phone" inputmode="tel" autocomplete="tel" required
+                     placeholder="+7 (___) ___-__-__" />
+            </div>
+            <div>
+              <label for="service">Услуга</label>
+              <select id="service" name="service">
+                <option>Вскрытие замков</option>
+                <option>Замена замков</option>
+                <option>Вскрытие автомобилей</option>
+                <option>Вскрытие сейфов</option>
+              </select>
+            </div>
+            <div>
+              <label for="comment">Комментарий</label>
+              <textarea id="comment" name="comment" rows="3" placeholder="Например: дверь захлопнулась, ключи внутри"></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn" type="submit">Вызвать срочно</button>
+              <a class="btn secondary" href="tel:+79889515789">Позвонить</a>
+              <button class="btn tg" type="button" onclick="openTelegramFromForm()">Написать в Telegram</button>
+            </div>
+            <div class="fineprint">
+              Нажимая «Вызвать срочно», вы соглашаетесь на обработку персональных данных (пример текста — замените на свой).
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- УСЛУГИ -->
+  <section id="services">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h3>Наши услуги</h3>
+          <p>Список услуг — как на визитке</p>
+        </div>
+      </div>
+
+      <div class="grid-4">
+        <div class="card">
+          <b>Вскрытие замков</b>
+          <p>Открываем дверь аккуратно, без лишних повреждений (по ситуации).</p>
+        </div>
+        <div class="card">
+          <b>Замена замков</b>
+          <p>Подберём вариант под вашу дверь и задачу, заменим на месте.</p>
+        </div>
+        <div class="card">
+          <b>Вскрытие автомобилей</b>
+          <p>Поможем, если ключи остались внутри или замок не открывается.</p>
+        </div>
+        <div class="card">
+          <b>Вскрытие сейфов</b>
+          <p>Работаем по ситуации: код, ключ, механика — уточним по телефону.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ОПЫТ -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h3>Опыт работы</h3>
+          <p>На рынке <b>больше 10 лет</b> — знаем нюансы и типовые “сложные случаи”</p>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <b>10+ лет в сфере замков</b>
+          <p>Реальная практика по вскрытию и замене замков разных типов: от простых до более сложных решений.</p>
+        </div>
+        <div class="card">
+          <b>Большой кейс по “нестандартным” ситуациям</b>
+          <p>Заклинило, сломался ключ, перекос двери, износ механизма — быстро определяем причину и предлагаем вариант решения.</p>
+        </div>
+        <div class="card">
+          <b>Опыт по авто и сейфам</b>
+          <p>Работаем по ситуациям, которые требуют аккуратности и понимания механики: авто-замки и сейфовые механизмы.</p>
+        </div>
+        <div class="card">
+          <b>Аккуратно и по делу</b>
+          <p>Перед началом — короткая диагностика и согласование действий. Цель — решить задачу без лишних вмешательств.</p>
+        </div>
+      </div>
+
+      <div style="height:12px"></div>
+
+      <div class="card">
+        <b>Хотите быстро уточнить по вашей ситуации?</b>
+        <p class="muted">
+          Позвоните: <a href="tel:+79889515789" style="font-weight:900;text-decoration:none">+7 993 087-55-36</a>
+          или напишите в Telegram — ответим и сориентируем по действиям.
+        </p>
+        <div style="height:10px"></div>
+        <div class="form-actions">
+          <a class="btn" href="tel:+79889515789">Позвонить</a>
+          <a class="btn tg" href="https://t.me/ChampVSK" target="_blank" rel="noopener">Написать в Telegram</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ЦЕНЫ -->
+  <section id="prices">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h3>Цены</h3>
+          <p>Укажите свои цены или оставьте «по телефону»</p>
+        </div>
+      </div>
+
+      <div class="grid-4">
+        <div class="card">
+          <b>Вскрытие</b>
+          <p>Стоимость зависит от типа замка и ситуации.</p>
+          <div class="mini-price">
+            <span>Цена</span>
+            <div class="price">по телефону</div>
+          </div>
+        </div>
+        <div class="card">
+          <b>Замена замков</b>
+          <p>Подбор и установка — на месте после диагностики.</p>
+          <div class="mini-price">
+            <span>Цена</span>
+            <div class="price">по телефону</div>
+          </div>
+        </div>
+        <div class="card">
+          <b>Автомобили</b>
+          <p>Тип авто/замка влияет на стоимость и время.</p>
+          <div class="mini-price">
+            <span>Цена</span>
+            <div class="price">по телефону</div>
+          </div>
+        </div>
+        <div class="card">
+          <b>Сейфы</b>
+          <p>Код/ключ/поломка — уточним, предложим решение.</p>
+          <div class="mini-price">
+            <span>Цена</span>
+            <div class="price">по телефону</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПРЕИМУЩЕСТВА -->
+  <section id="advantages">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h3>С нами удобно</h3>
+          <p>Коротко и “по-деловому”</p>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <b>Круглосуточно 24/7</b>
+          <p>Работаем без выходных. Можно вызвать срочно или договориться на удобное время.</p>
+        </div>
+        <div class="card">
+          <b>Связь в 1 клик</b>
+          <p>Телефон и Telegram всегда на виду: нажали — позвонили/написали.</p>
+        </div>
+        <div class="card">
+          <b>Аккуратный подход</b>
+          <p>Перед работой уточняем задачу и согласовываем действия.</p>
+        </div>
+        <div class="card">
+          <b>Широкий спектр задач</b>
+          <p>Двери, замки, авто и сейфы — в рамках услуг с визитки.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ОТЗЫВЫ -->
+  <section id="reviews">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h3>Отзывы</h3>
+          <p>Примеры — замените на реальные</p>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="card review">
+          <div class="who">
+            <span>Ольга</span>
+            <span class="stars">★★★★★</span>
+          </div>
+          <p>Приехали быстро, аккуратно открыли дверь и объяснили, что делать дальше.</p>
+        </div>
+        <div class="card review">
+          <div class="who">
+            <span>Алексей</span>
+            <span class="stars">★★★★★</span>
+          </div>
+          <p>Заменили замок на месте, всё работает отлично. По цене — как договаривались.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h3>Вопросы и ответы</h3>
+          <p>Короткие ответы в стиле “сервисной” страницы</p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>Вы работаете круглосуточно?</summary>
+          <p>Да, 24/7. Можно вызвать срочно или договориться на удобное время.</p>
+        </details>
+        <details>
+          <summary>Сколько стоит вскрытие/замена?</summary>
+          <p>Зависит от типа замка и ситуации. Быстрее всего — уточнить по телефону: <b>+7 993 087-55-36</b>.</p>
+        </details>
+        <details>
+          <summary>Можно написать в Telegram вместо звонка?</summary>
+          <p>Да. Нажмите кнопку Telegram — откроется чат с <b>@ChampVSK</b>.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- КОНТАКТЫ -->
+  <section id="contacts">
+    <div class="container">
+      <div class="contact-bar">
+        <div class="contact-inner">
+          <div>
+            <b>Нужен мастер по замкам?</b>
+            <small>Звоните прямо сейчас — 24/7</small>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn secondary" href="tel:+79889515789">+7 993 087-55-36</a>
+            <a class="btn" href="#call">Вызвать срочно</a>
+            <a class="btn tg" href="https://t.me/ChampVSK" target="_blank" rel="noopener">Telegram</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="height:12px"></div>
+
+      <div class="two-col">
+        <div class="card">
+          <b>Телефон</b>
+          <p><a href="tel:+79889515789" style="font-weight:900;text-decoration:none">+7 993 087-55-36</a></p>
+          <div style="height:10px"></div>
+          <b>Режим</b>
+          <p>Круглосуточно (24/7)</p>
+        </div>
+        <div class="card">
+          <b>Быстрая связь</b>
+          <p style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px">
+            <a class="btn" href="tel:+79889515789">Позвонить</a>
+            <a class="btn tg-outline" href="https://t.me/ChampVSK" target="_blank" rel="noopener">Написать в Telegram</a>
+          </p>
+          <p style="margin-top:10px;color:#64748b;font-size:12px">
+            *Кнопку «На карте» можно добавить, если дашь ссылку на Google/Yandex Maps.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © <span id="y"></span> Мастер по замкам • 24/7 • +7 993 087-55-36 • Telegram: @ChampVSK
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    const TG_USERNAME = 'ChampVSK';
+
+    // Открывает прямой чат с @ChampVSK + подставляет текст (если поддерживается клиентом)
+    function openTelegram(customText){
+      const text = customText || 'Здравствуйте! Нужен мастер по замкам. Подскажите, пожалуйста, по моей ситуации.';
+      const url = 'https://t.me/' + TG_USERNAME + '?text=' + encodeURIComponent(text);
+      window.open(url, '_blank');
+    }
+
+    function openTelegramFromForm(){
+      const name = (document.getElementById('name').value || '').trim();
+      const phone = (document.getElementById('phone').value || '').trim();
+      const service = (document.getElementById('service').value || '').trim();
+      const comment = (document.getElementById('comment').value || '').trim();
+
+      const parts = [
+        'Здравствуйте! Нужен мастер по замкам.',
+        name ? ('Имя: ' + name) : '',
+        phone ? ('Телефон: ' + phone) : '',
+        service ? ('Услуга: ' + service) : '',
+        comment ? ('Комментарий: ' + comment) : ''
+      ].filter(Boolean);
+
+      openTelegram(parts.join('\n'));
+    }
+
+    // Сабмит формы: открываем Telegram с готовым текстом
+    function submitLead(e){
+      e.preventDefault();
+      const phone = (document.getElementById('phone').value || '').trim();
+      if(!phone){
+        alert('Введите телефон');
+        return false;
+      }
+      openTelegramFromForm();
+      return false;
+    }
+  </script>
+</body>
+</html>
